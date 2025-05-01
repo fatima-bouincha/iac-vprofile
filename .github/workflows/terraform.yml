@@ -40,9 +40,8 @@ jobs:
         id: validate
         run: terraform validate
       - name: Terraform plan
-        id: plan
-        run: terraform plan -no-color -input=false -out planfile
-        continue-on-error: true
+        run: echo "=== Terraform Plan ==="
+            terraform plan -no-color -input=false -out planfile
 
       - name: Terraform plan status
         if: steps.plan.outcome == 'failure'
